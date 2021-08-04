@@ -227,7 +227,7 @@
                         </Border.Background>
                     </Border>
                 </Border>
-                <TextBlock Text="Kilter的WPF学习之路" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock Text="WPF--------Learning" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
             </StackPanel>
             <Grid Grid.Row="1" Margin="20,5">
                 <Grid.RowDefinitions>
