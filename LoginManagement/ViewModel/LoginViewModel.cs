@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -60,9 +61,12 @@ namespace LoginManagement.ViewModel
         
         private void DoLogin(object o)
         {
+            LogHelper.Print("aaaaaaaaaa");
+            LogHelper.TraceIn(MethodBase.GetCurrentMethod().DeclaringType.FullName,MethodBase.GetCurrentMethod().Name,string.Format("object o:{0}",o));
             if (string.IsNullOrEmpty(LoginModel.UserName))
             {
                 LoginModel.ErrorMessage = "用户名不能为空";
+                LogHelper.LogError(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "登录失败，用户名不能为空");
                 return;
             }
 

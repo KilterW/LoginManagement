@@ -284,3 +284,6 @@ E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\obj\Debu
 E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\obj\Debug\LoginManagement.csproj.CopyComplete
 E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\obj\Debug\LoginManagement.exe
 E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\obj\Debug\LoginManagement.pdb
+E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\bin\Debug\log4net.dll
+E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\bin\Debug\log4net.xml
+E:\Project.Net\ASP.net\LoginManagement\ManagementSystem\LoginManagement\bin\Debug\log4net.config
