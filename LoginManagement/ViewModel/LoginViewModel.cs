@@ -61,60 +61,68 @@ namespace LoginManagement.ViewModel
         
         private void DoLogin(object o)
         {
-            LogHelper.Print("aaaaaaaaaa");
-            LogHelper.TraceIn(MethodBase.GetCurrentMethod().DeclaringType.FullName,MethodBase.GetCurrentMethod().Name,string.Format("object o:{0}",o));
-            if (string.IsNullOrEmpty(LoginModel.UserName))
+            try
             {
-                LoginModel.ErrorMessage = "用户名不能为空";
-                LogHelper.LogError(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "登录失败，用户名不能为空");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(LoginModel.Password))
-            {
-                LoginModel.ErrorMessage = "密码不能为空";
-                return;
-            }
-
-            if (string.IsNullOrEmpty(LoginModel.ValidationCode))
-            {
-                LoginModel.ErrorMessage = "验证码不能为空";
-                return;
-            }
-            if (LoginModel.ValidationCode!= LoginModel.OriginalValidationCode)
-            {
-                LoginModel.ErrorMessage = "验证码错误";
-                return;
-            }
-            LoginModel.ErrorMessage = "";
-            Task.Run(new Action(()=> 
-            {
-                try
+                LogHelper.TraceIn(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, string.Format("object o:{0}", o));
+                if (string.IsNullOrEmpty(LoginModel.UserName))
                 {
-                    bool isExist = MysqlDataAccess.Instance.CheckUserInfo(LoginModel.UserName, LoginModel.Password);
-                    if (!isExist)
-                    {
-                        LoginModel.ErrorMessage = "用户名或者密码错误";
-                        return;
-                    }
-                    bool is_validation = MysqlDataAccess.Instance.CheckUserValidation(LoginModel.UserName);
-                    if (!is_validation)
-                    {
-                        LoginModel.ErrorMessage = "用户名已失效";
-                        return;
-                    }
+                    LoginModel.ErrorMessage = "用户名不能为空";
+                    LogHelper.LogError(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "登录失败，用户名不能为空");
+                    return;
+                }
 
-                    Application.Current.Dispatcher.Invoke(new Action(()=> 
-                    {
-                        (o as Window).DialogResult = true;
-                    })); 
-                    
-                }
-                catch (Exception ex)
+                if (string.IsNullOrEmpty(LoginModel.Password))
                 {
-                    LoginModel.ErrorMessage = ex.Message;
+                    LoginModel.ErrorMessage = "密码不能为空";
+                    return;
                 }
-            }));
+
+                if (string.IsNullOrEmpty(LoginModel.ValidationCode))
+                {
+                    LoginModel.ErrorMessage = "验证码不能为空";
+                    return;
+                }
+                if (LoginModel.ValidationCode != LoginModel.OriginalValidationCode)
+                {
+                    LoginModel.ErrorMessage = "验证码错误";
+                    return;
+                }
+                LoginModel.ErrorMessage = "";
+                Task.Run(new Action(() =>
+                {
+                    try
+                    {
+                        bool isExist = MysqlDataAccess.Instance.CheckUserInfo(LoginModel.UserName, LoginModel.Password);
+                        if (!isExist)
+                        {
+                            LoginModel.ErrorMessage = "用户名或者密码错误";
+                            return;
+                        }
+                        bool is_validation = MysqlDataAccess.Instance.CheckUserValidation(LoginModel.UserName);
+                        if (!is_validation)
+                        {
+                            LoginModel.ErrorMessage = "用户名已失效";
+                            return;
+                        }
+
+                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            (o as Window).DialogResult = true;
+                        }));
+
+                    }
+                    catch (Exception ex)
+                    {
+                        LoginModel.ErrorMessage = ex.Message;
+                        LogHelper.LogErrorException(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "数据库核对用户信息异常", ex);
+                    }
+                }));
+            }
+            catch (Exception ex)
+            {
+                LogHelper.LogErrorException(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "登录异常" , ex);
+            }
+            
             
         }
 

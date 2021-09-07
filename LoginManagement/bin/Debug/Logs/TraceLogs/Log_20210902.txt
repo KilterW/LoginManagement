@@ -1,5 +1,0 @@
---------------- 上海精测半导体技术有限公司 TRACE LOG START -----------------------
-2021-09-02 21:37:23,798：INFO  - LoginManagement.ViewModel.LoginViewModel.DoLogin <- object o:LoginManagement.View.LoginView
---------------- 上海精测半导体技术有限公司 TRACE LOG START -----------------------
-2021-09-02 21:42:15,162：INFO  - aaaaaaaaaa
-2021-09-02 21:42:15,168：INFO  - LoginManagement.ViewModel.LoginViewModel.DoLogin <- object o:LoginManagement.View.LoginView

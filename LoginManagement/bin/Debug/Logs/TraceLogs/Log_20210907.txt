@@ -1,0 +1,13 @@
+--------------- TRACE LOG START -----------------------
+2021-09-07 15:02:07,311£ºINFO  - aaaaaaaaaa
+2021-09-07 15:02:07,317£ºINFO  - LoginManagement.ViewModel.LoginViewModel.DoLogin <- object o:LoginManagement.View.LoginView
+--------------- TRACE LOG CLOSE -----------------------
+--------------- TRACE LOG START -----------------------
+2021-09-07 15:02:47,824£ºINFO  - aaaaaaaaaa
+2021-09-07 15:02:47,830£ºINFO  - LoginManagement.ViewModel.LoginViewModel.DoLogin <- object o:LoginManagement.View.LoginView
+--------------- TRACE LOG CLOSE -----------------------
+---------------  TRACE LOG START -----------------------
+2021-09-07 15:30:18,706£ºINFO  - LoginManagement.ViewModel.LoginViewModel.DoLogin <- object o:LoginManagement.View.LoginView
+---------------  TRACE LOG START -----------------------
+2021-09-07 16:11:17,193£ºINFO  - LoginManagement.ViewModel.LoginViewModel.DoLogin <- object o:LoginManagement.View.LoginView
+---------------- TRACE LOG CLOSE -----------------------
