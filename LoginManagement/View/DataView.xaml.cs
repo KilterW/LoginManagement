@@ -17,13 +17,14 @@ using System.Windows.Shapes;
 namespace LoginManagement.View
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// DataView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainView : Window
+    public partial class DataView : UserControl
     {
-        public MainView()
+        public DataView()
         {
             InitializeComponent();
+            DataContext = new DataViewModel();
         }
     }
 }

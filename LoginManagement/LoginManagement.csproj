@@ -112,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,14 +129,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Common\CourseValidationRule.cs" />
     <Compile Include="Common\LogHelper.cs" />
     <Compile Include="Common\Md5Provider.cs" />
     <Compile Include="Common\NotifyBase.cs" />
     <Compile Include="Common\PasswordHelper.cs" />
+    <Compile Include="DataAccess\DataEntity\Course.cs" />
     <Compile Include="DataAccess\DataEntity\Users.cs" />
     <Compile Include="DataAccess\MysqlDataAccess.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\DataModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\DataViewModel.cs" />
+    <Compile Include="View\DataView.xaml.cs">
+      <DependentUpon>DataView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>

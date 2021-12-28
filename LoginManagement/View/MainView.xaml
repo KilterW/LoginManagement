@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LoginManagement"
+        xmlns:local="clr-namespace:LoginManagement.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="DataGrid数据验证测试">
+                <local:DataView/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

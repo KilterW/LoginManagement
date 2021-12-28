@@ -26,10 +26,12 @@ namespace LoginManagement
             {
                 return;
             }
-            if (new LoginView().ShowDialog()==true)
-            {
-                new MainView().ShowDialog();
-            }
+            //if (new LoginView().ShowDialog()==true)
+            //{
+            //    new MainView().ShowDialog();
+            //}
+
+            new MainView().ShowDialog();
             Application.Current.Shutdown();
         }
 
