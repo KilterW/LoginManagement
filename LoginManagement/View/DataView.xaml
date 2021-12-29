@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding DataModel.Courses}" FontSize="15" RowHeaderWidth="27" AutoGenerateColumns="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" ItemsSource="{Binding DataModel.Courses}" FontSize="15" RowHeaderWidth="27" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style x:Key="errorStyle" TargetType="{x:Type TextBox}">
                     <Setter Property="Padding" Value="-2"/>
@@ -39,6 +43,12 @@
                 <DataGridTextColumn Header="Course EndDate" Binding="{Binding EndDate,ValidatesOnExceptions=True,NotifyOnValidationError=True,StringFormat=d}"
                                     EditingElementStyle="{StaticResource errorStyle}"/>
             </DataGrid.Columns>
-        </DataGrid>   
+        </DataGrid>
+        <StackPanel Grid.Row="1" Name="RelativeSource" Orientation="Horizontal">
+            <!--FindAncestor:查找父类资源；  AncestorType：限定父类类型；   AncestorLevel：以Bingding目标控件为起点的层级偏移量   Path:相关属性-->
+            <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type StackPanel}, AncestorLevel=1},Path=Name}"/>
+            <!--Self：绑定自身-->
+            <Button Content="Self" Width="100" Height="{Binding RelativeSource={RelativeSource Mode=Self},Path=Width}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
